@@ -7,11 +7,24 @@ window.onload=function(){
     const allTasksParent=document.getElementById('allTasks');
 
     taskField.addEventListener('keypress',function(event){
-        if(event.keyCode===13){
+        if(event.keyCode===13 && taskField.value !==''){
             // console.log('Enter');
+     
             createNewTask(allTasksParent, event.target.value)
             this.value=''
+        }else{
+        	// alert('ff');
         }
+    });
+
+    addTaskBtn.addEventListener('click',function(){
+
+    	if(taskField.value===''){
+    		alert('Please input any value');
+    	}else{
+    		createNewTask(allTasksParent,taskField.value);
+    		taskField.value='';
+    	}
     });
 
    
